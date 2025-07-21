@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlinx-serialization")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -55,10 +57,31 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
+
+   /* implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(libs.androidx.material3)*/
+
+    // Compose UI, Material3, Tooling, Coil, Lifecycle
+    implementation(libs.bundles.compose)
+
+    // Networking (Retrofit, OkHttp, Coroutines, Serialization)
+    implementation(libs.bundles.networking)
+
+    // Koin DI
+    implementation(libs.bundles.koin)
+
+    //Navigation
+     implementation(libs.compose.navigation)
+
+    //large Screens
+
+    implementation(libs.compose.window.size)
+    implementation (libs.androidx.window)
+    implementation(libs.androidx.foundation.layout.android)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
